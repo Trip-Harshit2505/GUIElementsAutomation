@@ -1,6 +1,7 @@
 package tests;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -59,14 +60,25 @@ public class DatePickerTest extends BaseTest {
         logger.info("Selecting start and end date");
         test.info("Selecting start and end date");
 
-        driver.findElement(page.startDate)
-              .sendKeys("21/06/2026");
+        WebElement startDate = driver.findElement(page.startDate);
+        startDate.sendKeys("21/06/2026");
+        startDate.sendKeys(Keys.ENTER);
 
-        driver.findElement(page.endDate)
-              .sendKeys("30/06/2026");
+        WebElement endDate = driver.findElement(page.endDate);
+        endDate.sendKeys("30/06/2026");
+        endDate.sendKeys(Keys.ENTER);
 
         driver.findElement(page.submitDateButton)
               .click();
+        
+        String actualDate =
+                driver.findElement(page.startDate)
+                      .getAttribute("value");
+
+        logger.info("Actual Start Date = " + actualDate);
+        test.info("Actual Start Date = " + actualDate);
+
+        System.out.println(actualDate);
 
         Assert.assertEquals(
                 driver.findElement(page.startDate)

@@ -89,6 +89,7 @@ pipeline {
 	                Build URL:
 	                ${env.BUILD_URL}
 	            """,
+	            to: '$DEFAULT_RECIPIENTS',
 	            attachmentsPattern: "reports/*.html"
 	        )
 	    }
@@ -109,6 +110,7 @@ pipeline {
 	                Build URL:
 	                ${env.BUILD_URL}
 	            """,
+	            to: '$DEFAULT_RECIPIENTS',
 	            attachmentsPattern: "reports/*.html"
 	        )
 	    }

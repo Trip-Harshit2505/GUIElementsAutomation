@@ -3,7 +3,7 @@ pipeline {
     agent any
 
     tools {
-        jdk 'JDK17'
+        jdk 'JDK25'
         maven 'Maven3'
     }
 
@@ -16,7 +16,7 @@ pipeline {
                 echo 'Cloning GitHub Repository'
 
                 git branch: 'main',
-                    url: 'YOUR_GITHUB_REPOSITORY_URL'
+                    url: 'https://github.com/Trip-Harshit2505/GUIElementsAutomation.git'
             }
         }
 

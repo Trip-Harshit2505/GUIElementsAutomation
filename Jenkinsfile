@@ -49,6 +49,30 @@ pipeline {
                 bat 'mvn test -DsuiteXmlFile=testng.xml'
             }
         }
+        
+        stage('Publish Extent Report') {
+			
+			steps {
+				
+				publishHTML([
+					
+					allowMissing: false,
+					
+					alwaysLinkToLastBuild: true,
+					
+					keepAll: true,
+					
+					reportDir: 'reports',
+					
+					reportFiles: 'ExtentReport.html',
+					
+					reportName: 'Automation Extent Report'
+					
+				])
+				
+			}
+			
+		}
 
         stage('Archive Reports') {
 

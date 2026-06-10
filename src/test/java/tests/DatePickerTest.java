@@ -60,13 +60,16 @@ public class DatePickerTest extends BaseTest {
         logger.info("Selecting start and end date");
         test.info("Selecting start and end date");
 
-        WebElement startDate = driver.findElement(page.startDate);
-        startDate.sendKeys("21/06/2026");
-        startDate.sendKeys(Keys.ENTER);
+        JavascriptExecutor js =
+                (JavascriptExecutor) driver;
 
-        WebElement endDate = driver.findElement(page.endDate);
-        endDate.sendKeys("30/06/2026");
-        endDate.sendKeys(Keys.ENTER);
+        js.executeScript(
+                "arguments[0].value='2026-06-21';",
+                driver.findElement(page.startDate));
+
+        js.executeScript(
+                "arguments[0].value='2026-06-30';",
+                driver.findElement(page.endDate));
 
         driver.findElement(page.submitDateButton)
               .click();

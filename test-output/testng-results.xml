@@ -2,16 +2,16 @@
 <testng-results ignored="2" total="3" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-06-10T16:04:00 IST" name="Default suite" finished-at="2026-06-10T16:04:10 IST" duration-ms="9968">
+  <suite started-at="2026-06-10T16:12:54 IST" name="Default suite" finished-at="2026-06-10T16:13:06 IST" duration-ms="11530">
     <groups>
     </groups>
-    <test started-at="2026-06-10T16:04:00 IST" name="Default test" finished-at="2026-06-10T16:04:10 IST" duration-ms="9968">
+    <test started-at="2026-06-10T16:12:54 IST" name="Default test" finished-at="2026-06-10T16:13:06 IST" duration-ms="11530">
       <class name="tests.DatePickerTest">
-        <test-method is-config="true" signature="setupReport()[pri:0, instance:tests.DatePickerTest@28ec166e]" started-at="2026-06-10T16:04:00 IST" name="setupReport" finished-at="2026-06-10T16:04:00 IST" duration-ms="360" status="PASS">
+        <test-method is-config="true" signature="setupReport()[pri:0, instance:tests.DatePickerTest@28ec166e]" started-at="2026-06-10T16:12:54 IST" name="setupReport" finished-at="2026-06-10T16:12:54 IST" duration-ms="421" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupReport -->
-        <test-method is-config="true" signature="setup(java.lang.reflect.Method)[pri:0, instance:tests.DatePickerTest@28ec166e]" started-at="2026-06-10T16:04:00 IST" name="setup" finished-at="2026-06-10T16:04:09 IST" duration-ms="9181" status="PASS">
+        <test-method is-config="true" signature="setup(java.lang.reflect.Method)[pri:0, instance:tests.DatePickerTest@28ec166e]" started-at="2026-06-10T16:12:54 IST" name="setup" finished-at="2026-06-10T16:13:05 IST" duration-ms="10597" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -22,11 +22,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="dateRangeTest()[pri:0, instance:tests.DatePickerTest@28ec166e]" started-at="2026-06-10T16:04:09 IST" name="dateRangeTest" finished-at="2026-06-10T16:04:10 IST" duration-ms="437" status="PASS">
+        <test-method signature="dateRangeTest()[pri:0, instance:tests.DatePickerTest@28ec166e]" started-at="2026-06-10T16:13:05 IST" name="dateRangeTest" finished-at="2026-06-10T16:13:05 IST" duration-ms="437" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- dateRangeTest -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.DatePickerTest@28ec166e]" started-at="2026-06-10T16:04:10 IST" name="tearDown" finished-at="2026-06-10T16:04:10 IST" duration-ms="302" status="PASS">
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.DatePickerTest@28ec166e]" started-at="2026-06-10T16:13:05 IST" name="tearDown" finished-at="2026-06-10T16:13:06 IST" duration-ms="430" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -37,7 +37,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="closeReport()[pri:0, instance:tests.DatePickerTest@28ec166e]" started-at="2026-06-10T16:04:10 IST" name="closeReport" finished-at="2026-06-10T16:04:10 IST" duration-ms="303" status="PASS">
+        <test-method is-config="true" signature="closeReport()[pri:0, instance:tests.DatePickerTest@28ec166e]" started-at="2026-06-10T16:13:06 IST" name="closeReport" finished-at="2026-06-10T16:13:06 IST" duration-ms="459" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeReport -->

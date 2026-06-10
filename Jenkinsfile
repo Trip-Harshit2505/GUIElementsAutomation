@@ -89,7 +89,8 @@ pipeline {
 	                Build URL:
 	                ${env.BUILD_URL}
 	            """,
-	            to: "trip.harshitclg@gmail.com"
+	            to: "trip.harshitclg@gmail.com",
+	            attachmentsPattern: "reports/*.html"
 	        )
 	    }
 	
@@ -109,7 +110,8 @@ pipeline {
 	                Build URL:
 	                ${env.BUILD_URL}
 	            """,
-	            to: "trip.harshitclg@gmail.com"
+	            to: "trip.harshitclg@gmail.com",
+	            attachmentsPattern: "reports/*.html"
 	        )
 	    }
 	}

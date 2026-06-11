@@ -6,17 +6,25 @@ import org.testng.annotations.Test;
 
 import base.BaseTest;
 import pages.FormPage;
+import utilities.ScrollUtils;
+import utilities.WaitUtils;
 
 public class DropdownTest extends BaseTest {
 
 	FormPage page =
             new FormPage();
 
-    @Test
+    @Test(priority=1)
     public void selectColor() {
 
         logger.info("Selecting color");
         test.info("Selecting color");
+        
+        ScrollUtils.scrollToElement(
+                driver,
+                driver.findElement(page.colors));
+        
+        WaitUtils.pause(2);
 
         Select colors =
                 new Select(
@@ -24,6 +32,8 @@ public class DropdownTest extends BaseTest {
                                 page.colors));
 
         colors.selectByVisibleText("Red");
+        
+        WaitUtils.pause(2);
 
         String selected =
                 colors.getFirstSelectedOption()
@@ -36,11 +46,17 @@ public class DropdownTest extends BaseTest {
         test.pass("Color selected successfully");
     }
 
-    @Test
+    @Test(priority=2)
     public void selectAnimal() {
 
         logger.info("Selecting animal");
         test.info("Selecting animal");
+        
+        ScrollUtils.scrollToElement(
+                driver,
+                driver.findElement(page.animals));
+        
+        WaitUtils.pause(2);
 
         Select animals =
                 new Select(
@@ -48,6 +64,8 @@ public class DropdownTest extends BaseTest {
                                 page.animals));
 
         animals.selectByVisibleText("Dog");
+        
+        WaitUtils.pause(2);
 
         String selected =
                 animals.getFirstSelectedOption()

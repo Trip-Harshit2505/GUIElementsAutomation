@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 
 import base.BaseTest;
 import pages.FormPage;
+import utilities.ScrollUtils;
 import utilities.TestDataProvider;
 import utilities.WaitUtils;
 
@@ -14,11 +15,17 @@ public class FormTest extends BaseTest {
     FormPage page =
             new FormPage();
 
-    @Test
+    @Test(priority=1)
     public void fillForm() {
 
         logger.info("Starting fillForm test");
         test.info("Starting fillForm test");
+        
+        ScrollUtils.scrollToElement(
+                driver,
+                driver.findElement(page.name));
+        
+        WaitUtils.pause(2);
 
         logger.info("Entering Name");
         WaitUtils.waitForElementVisible(
@@ -36,6 +43,8 @@ public class FormTest extends BaseTest {
         logger.info("Entering Address");
         driver.findElement(page.address)
                 .sendKeys("Bhopal");
+        
+        WaitUtils.pause(2);
 
         logger.info("Selecting Male as Gender");
         driver.findElement(page.male)
@@ -48,6 +57,8 @@ public class FormTest extends BaseTest {
                                 page.country));
 
         country.selectByVisibleText("India");
+        
+        WaitUtils.pause(2);
 
         logger.info("Verifying Name field value");
         Assert.assertEquals(
@@ -66,6 +77,7 @@ public class FormTest extends BaseTest {
     }
 
     @Test(
+    		priority=2,
             dataProvider = "excelData",
             dataProviderClass = TestDataProvider.class)
     public void fillFormDDT(
@@ -76,6 +88,12 @@ public class FormTest extends BaseTest {
 
         logger.info("Starting DDT execution");
         test.info("Starting DDT execution");
+        
+        ScrollUtils.scrollToElement(
+                driver,
+                driver.findElement(page.name));
+        
+        WaitUtils.pause(2);
 
         logger.info("Entering Name: " + name);
         driver.findElement(page.name)
@@ -92,6 +110,8 @@ public class FormTest extends BaseTest {
         logger.info("Entering Address: " + address);
         driver.findElement(page.address)
                 .sendKeys(address);
+        
+        WaitUtils.pause(2);
 
         logger.info("Verifying Name field value");
         Assert.assertEquals(

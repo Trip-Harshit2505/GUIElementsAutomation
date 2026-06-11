@@ -1,27 +1,36 @@
 package tests;
 
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import base.BaseTest;
 import pages.DatePickerPage;
+import utilities.ScrollUtils;
+import utilities.WaitUtils;
 
 public class DatePickerTest extends BaseTest {
 
     DatePickerPage page =
             new DatePickerPage();
 
-    @Test
+    @Test(priority=1)
     public void datePicker1Test() {
 
         logger.info("Entering date in DatePicker1");
         test.info("Entering date in DatePicker1");
+        
+        ScrollUtils.scrollToElement(
+                driver,
+                driver.findElement(page.datepicker1));
+        
+        WaitUtils.pause(2);
 
         driver.findElement(page.datepicker1)
               .sendKeys("06/12/2026");
+        
+        WaitUtils.pause(2);
 
         String value =
                 driver.findElement(page.datepicker1)
@@ -34,18 +43,26 @@ public class DatePickerTest extends BaseTest {
         test.pass("DatePicker1 verified");
     }
 
-    @Test
+    @Test(priority=2)
     public void datePicker2Test() {
 
         logger.info("Entering date in DatePicker2");
         test.info("Entering date in DatePicker2");
+        
+        ScrollUtils.scrollToElement(
+                driver,
+                driver.findElement(page.datepicker2));
+        
+        WaitUtils.pause(2);
 
         WebElement datepicker2 = driver.findElement(page.datepicker2);
         
         JavascriptExecutor js = (JavascriptExecutor) driver;
         
         js.executeScript("arguments[0].setAttribute('value', '12/06/2026')", datepicker2);
-
+        
+        WaitUtils.pause(2);
+        
         Assert.assertFalse(
                 driver.findElement(page.datepicker2)
                       .getAttribute("value")
@@ -54,11 +71,17 @@ public class DatePickerTest extends BaseTest {
         test.pass("DatePicker2 verified");
     }
 
-    @Test
+    @Test(priority=3)
     public void dateRangeTest() {
 
         logger.info("Selecting start and end date");
         test.info("Selecting start and end date");
+        
+        ScrollUtils.scrollToElement(
+                driver,
+                driver.findElement(page.startDate));
+        
+        WaitUtils.pause(2);
 
         JavascriptExecutor js =
                 (JavascriptExecutor) driver;
@@ -70,6 +93,8 @@ public class DatePickerTest extends BaseTest {
         js.executeScript(
                 "arguments[0].value='2026-06-30';",
                 driver.findElement(page.endDate));
+        
+        WaitUtils.pause(2);
 
         driver.findElement(page.submitDateButton)
               .click();

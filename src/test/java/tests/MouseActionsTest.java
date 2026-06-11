@@ -7,17 +7,25 @@ import org.testng.annotations.Test;
 
 import base.BaseTest;
 import pages.MouseActionsPage;
+import utilities.ScrollUtils;
+import utilities.WaitUtils;
 
 public class MouseActionsTest extends BaseTest {
 
 	MouseActionsPage page =
             new MouseActionsPage();
 
-    @Test
+    @Test(priority=1)
     public void mouseHoverTest() {
 
         logger.info("Starting Mouse Hover Test");
         test.info("Starting Mouse Hover Test");
+        
+        ScrollUtils.scrollToElement(
+                driver,
+                driver.findElement(page.pointMeButton));
+        
+        WaitUtils.pause(2);
 
         Actions actions =
                 new Actions(driver);
@@ -29,6 +37,8 @@ public class MouseActionsTest extends BaseTest {
                 driver.findElement(
                         page.pointMeButton))
                 .perform();
+        
+        WaitUtils.pause(2);
 
         logger.info("Clicking Mobiles option");
         test.info("Clicking Mobiles option");
@@ -41,14 +51,22 @@ public class MouseActionsTest extends BaseTest {
         test.info("Mouse Hover Test completed successfully");
     }
 
-    @Test
+    @Test(priority=2)
     public void dragAndDropTest() {
 
         logger.info("Starting Drag and Drop Test");
         test.info("Starting Drag and Drop Test");
+        
+        ScrollUtils.scrollToElement(
+                driver,
+                driver.findElement(page.draggable));
+        
+        WaitUtils.pause(2);
 
         Actions actions =
                 new Actions(driver);
+        
+        WaitUtils.pause(2);
 
         logger.info("Dragging element to drop area");
         test.info("Dragging element to drop area");
@@ -63,6 +81,8 @@ public class MouseActionsTest extends BaseTest {
 
         logger.info("Verifying drop operation");
         test.info("Verifying drop operation");
+        
+        WaitUtils.pause(2);
 
         Assert.assertTrue(
                 driver.findElement(page.droppable)
@@ -73,17 +93,25 @@ public class MouseActionsTest extends BaseTest {
         test.info("Drag and Drop Test completed successfully");
     }
 
-    @Test
+    @Test(priority=3)
     public void doubleClickTest() {
 
         logger.info("Starting Double Click Test");
         test.info("Starting Double Click Test");
+        
+        ScrollUtils.scrollToElement(
+                driver,
+                driver.findElement(page.copyTextButton));
+        
+        WaitUtils.pause(2);
 
         Actions actions =
                 new Actions(driver);
 
         logger.info("Performing double click on Copy Text button");
         test.info("Performing double click on Copy Text button");
+        
+        WaitUtils.pause(2);
 
         actions.doubleClick(
                 driver.findElement(
@@ -92,6 +120,8 @@ public class MouseActionsTest extends BaseTest {
 
         logger.info("Fetching values from both text fields");
         test.info("Fetching values from both text fields");
+        
+        WaitUtils.pause(2);
 
         String field1 =
                 driver.findElement(page.field1)
@@ -113,11 +143,17 @@ public class MouseActionsTest extends BaseTest {
         test.info("Double Click Test completed successfully");
     }
 
-    @Test
+    @Test(priority=4)
     public void sliderTest() {
 
         logger.info("Starting Slider Test");
         test.info("Starting Slider Test");
+        
+        ScrollUtils.scrollToElement(
+                driver,
+                driver.findElement(page.minSliderHandle));
+        
+        WaitUtils.pause(2);
 
         WebElement minSlider =
                 driver.findElement(
@@ -125,6 +161,8 @@ public class MouseActionsTest extends BaseTest {
 
         Actions actions =
                 new Actions(driver);
+        
+        WaitUtils.pause(2);
 
         String before =
                 driver.findElement(page.priceRange)
@@ -140,6 +178,8 @@ public class MouseActionsTest extends BaseTest {
                 .moveByOffset(60, 0)
                 .release()
                 .perform();
+        
+        WaitUtils.pause(2);
 
         String after =
                 driver.findElement(page.priceRange)

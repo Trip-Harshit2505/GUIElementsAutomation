@@ -3,15 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="tests.DatePickerTest">
+      <class name="tests.ShadowDOMTest">
         <methods>
           <include name="setup"/>
           <include name="tearDown"/>
-          <include name="dateRangeTest"/>
+          <include name="clickBlogLinkTest"/>
           <include name="setupReport"/>
           <include name="closeReport"/>
         </methods>
-      </class> <!-- tests.DatePickerTest -->
+      </class> <!-- tests.ShadowDOMTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

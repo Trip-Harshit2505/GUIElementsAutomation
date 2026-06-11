@@ -5,6 +5,8 @@ import org.testng.annotations.Test;
 
 import base.BaseTest;
 import pages.AlertPage;
+import utilities.ScrollUtils;
+import utilities.WaitUtils;
 
 public class AlertTest extends BaseTest {
 
@@ -16,8 +18,17 @@ public class AlertTest extends BaseTest {
     	
     	logger.info("Clicking the Simple alert button");
     	test.info("Clicking the Simple alert button");
+    	
+    	ScrollUtils.scrollToElement(
+                driver,
+                driver.findElement(page.simpleAlertButton));
+    	
+    	WaitUtils.pause(2);
+    	
         driver.findElement(page.simpleAlertButton)
                 .click();
+        
+        WaitUtils.pause(2);
         
         logger.info("Accepting the alert popup");
         driver.switchTo()
@@ -34,8 +45,17 @@ public class AlertTest extends BaseTest {
 
     	logger.info("Clicking the Confirm alert button");
     	test.info("Clicking the Confirm alert button");
+    	
+    	ScrollUtils.scrollToElement(
+                driver,
+                driver.findElement(page.confirmAlertButton));
+    	
+    	WaitUtils.pause(2);
+    	
         driver.findElement(page.confirmAlertButton)
                 .click();
+        
+        WaitUtils.pause(2);
         
         logger.info("Accepting the alert popup");
         driver.switchTo()
@@ -52,6 +72,13 @@ public class AlertTest extends BaseTest {
     	
     	logger.info("Clicking the Prompt alert button");
     	test.info("Clicking the Prompt alert button");
+    	
+    	ScrollUtils.scrollToElement(
+                driver,
+                driver.findElement(page.promptAlertButton));
+    	
+    	WaitUtils.pause(2);
+    	
         driver.findElement(page.promptAlertButton)
                 .click();
         
@@ -59,6 +86,8 @@ public class AlertTest extends BaseTest {
         driver.switchTo()
                 .alert()
                 .sendKeys("Harshit");
+        
+        WaitUtils.pause(2);
         
         logger.info("Accepting the alert popup");
         driver.switchTo()

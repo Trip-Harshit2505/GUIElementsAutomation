@@ -3,16 +3,17 @@
 <suite name="GUI Elements Suite">
 	<test thread-count="5" name="Regression Test">
 		<classes>
+			<class name="tests.FormTest" />
+			<class name="tests.DropdownTest" />
+			<class name="tests.SearchTest" />
+			<class name="tests.DynamicButtonTest" />
+			<class name="tests.DatePickerTest" />
+			<class name="tests.MouseActionsTest" />
 			<class name="tests.UploadTest" />
 			<class name="tests.TableTests" />
 			<class name="tests.AlertTest" />
-			<class name="tests.FormTest" />
-			<class name="tests.MouseActionsTest" />
-			<class name="tests.DropdownTest" />
-			<class name="tests.DatePickerTest" />
-			<class name="tests.SearchTest" />
 			<class name="tests.WindowHandlingTest" />
-			<class name="tests.DynamicButtonTest" />
+			<class name="tests.ShadowDOMTest" />
 		</classes>
 	</test> <!--
 	Test -->

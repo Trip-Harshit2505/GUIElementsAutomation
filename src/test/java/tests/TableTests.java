@@ -8,17 +8,25 @@ import org.testng.annotations.Test;
 
 import base.BaseTest;
 import pages.TablePage;
+import utilities.ScrollUtils;
+import utilities.WaitUtils;
 
 public class TableTests extends BaseTest {
 
     TablePage page =
             new TablePage();
 
-    @Test
+    @Test(priority=1)
     public void verifyStaticTable() {
 
         logger.info("Starting Static Table Verification");
         test.info("Starting Static Table Verification");
+        
+        ScrollUtils.scrollToElement(
+                driver,
+                driver.findElement(page.staticWebTableRows));
+        
+        WaitUtils.pause(2);
 
         List<WebElement> rows =
                 driver.findElements(
@@ -57,11 +65,17 @@ public class TableTests extends BaseTest {
         test.info("Static Table Verification completed successfully");
     }
 
-    @Test
+    @Test(priority=2)
     public void verifyDynamicTable() {
 
         logger.info("Starting Dynamic Table Verification");
         test.info("Starting Dynamic Table Verification");
+        
+        ScrollUtils.scrollToElement(
+                driver,
+                driver.findElement(page.dynamicTableRows));
+        
+        WaitUtils.pause(2);
 
         List<WebElement> rows =
                 driver.findElements(
@@ -78,11 +92,18 @@ public class TableTests extends BaseTest {
         test.info("Dynamic Table Verification completed successfully");
     }
 
-    @Test
+    @Test(priority=3)
     public void verifyChromePresent() {
 
         logger.info("Starting Chrome Row Verification");
         test.info("Starting Chrome Row Verification");
+        
+        ScrollUtils.scrollToElement(
+                driver,
+                driver.findElement(page.dynamicTableRows));
+        
+        WaitUtils.pause(2);
+
 
         List<WebElement> rows =
                 driver.findElements(
@@ -116,11 +137,17 @@ public class TableTests extends BaseTest {
         test.info("Chrome Row Verification completed successfully");
     }
     
-    @Test
+    @Test(priority=4)
     public void verifyPaginationTable() {
 
         logger.info("Verifying Pagination Table");
         test.info("Verifying Pagination Table");
+        
+        ScrollUtils.scrollToElement(
+                driver,
+                driver.findElement(page.paginationRows));
+        
+        WaitUtils.pause(2);
 
         int totalRows = 0;
 
@@ -135,6 +162,8 @@ public class TableTests extends BaseTest {
 
                 driver.findElement(page.nextPage)
                       .click();
+                
+                WaitUtils.pause(1);
 
             }
             catch(Exception e) {

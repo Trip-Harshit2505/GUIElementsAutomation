@@ -10,29 +10,27 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class WaitUtils {
 
-    public static WebElement waitForElementVisible(
-            WebDriver driver,
-            By locator) {
+	// Pause Execution
 
-        WebDriverWait wait =
-                new WebDriverWait(driver,
-                        Duration.ofSeconds(10));
+	public static void pause(double seconds) {
+		try {
+			Thread.sleep((int) (seconds * 1000));
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
 
-        return wait.until(
-                ExpectedConditions
-                        .visibilityOfElementLocated(locator));
-    }
+	public static WebElement waitForElementVisible(WebDriver driver, By locator) {
 
-    public static WebElement waitForElementClickable(
-            WebDriver driver,
-            By locator) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-        WebDriverWait wait =
-                new WebDriverWait(driver,
-                        Duration.ofSeconds(10));
+		return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+	}
 
-        return wait.until(
-                ExpectedConditions
-                        .elementToBeClickable(locator));
-    }
+	public static WebElement waitForElementClickable(WebDriver driver, By locator) {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+		return wait.until(ExpectedConditions.elementToBeClickable(locator));
+	}
 }
